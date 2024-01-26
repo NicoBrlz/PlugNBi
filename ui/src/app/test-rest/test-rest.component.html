@@ -1,0 +1,55 @@
+<H1>Test Rest APIs</H1>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <label class="col-md-2">Table info</label>
+    <select [(ngModel)]="selectedTable" class="col-md-2">
+      <option value="sales">Sales</option>
+      <option value="listing">Listing</option>
+      <option value="user">User</option>
+      <option value="venue">Venue</option>
+      <option value="event">Event</option>
+      <option value="category">Category</option>
+      <option value="date">Date</option>
+    </select>
+    <span class="col-md-1">
+      <button type="button" class="btn btn-outline-primary"
+              (click)="onClickGetTableInfo()">Get Table Info</button>
+    </span>
+    <div class="col-md-9">
+      <textarea *ngIf="selectedTable === 'sales'" [ngModel]="salesTableInfoJson" cols="120" rows="30"></textarea>
+      <textarea *ngIf="selectedTable === 'listing'" [ngModel]="listingTableInfoJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'user'" [ngModel]="userTableInfoJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'venue'" [ngModel]="venueTableInfoJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'event'" [ngModel]="eventTableInfoJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'category'" [ngModel]="categoryTableInfoJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'date'" [ngModel]="dateTableInfoJson" cols="120" rows="20"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <ul>
+          <li *ngFor="let field of fieldNames">{{field}}</li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <label class="col-md-2">Sales first 20 rows</label>
+    <span class="col-md-1">
+      <button type="button" class="btn btn-outline-primary"
+              (click)="onClickQuery()">Query First Rows</button>
+    </span>
+    <div class="col-md-9">
+      <textarea *ngIf="selectedTable === 'sales'" [ngModel]="salesFirstRowsJson" cols="120" rows="30"></textarea>
+      <textarea *ngIf="selectedTable === 'listing'" [ngModel]="listingFirstRowsJson" cols="120" rows="50"></textarea>
+      <textarea *ngIf="selectedTable === 'user'" [ngModel]="userFirstRowsJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'venue'" [ngModel]="venueFirstRowsJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'event'" [ngModel]="eventFirstRowsJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'category'" [ngModel]="categoryFirstRowsJson" cols="120" rows="20"></textarea>
+      <textarea *ngIf="selectedTable === 'date'" [ngModel]="dateFirstRowsJson" cols="120" rows="20"></textarea>
+    </div>
+  </div>
+
+</div>

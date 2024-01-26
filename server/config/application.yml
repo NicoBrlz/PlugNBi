@@ -1,0 +1,8 @@
+
+logging:
+  level:
+    root: INFO
+    org:
+      apache:
+        spark: WARN
+      sparkproject: WARN

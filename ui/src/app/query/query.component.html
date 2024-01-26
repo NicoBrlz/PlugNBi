@@ -1,0 +1,74 @@
+<div class="form-row">
+  <div class="form-group">
+    <label for="selectedTable">Table:</label>
+    <select id="selectedTable" [(ngModel)]="selectedTable" (change)="getTableInfo()">
+      <option value="sales">Sales</option>
+      <option value="listing">Listing</option>
+      <option value="user">User</option>
+      <option value="venue">Venue</option>
+      <option value="event">Event</option>
+      <option value="category">Category</option>
+      <option value="date">Date</option>
+    </select>
+  </div>
+
+  <div class="form-group" *ngIf="fieldNames.length > 0">
+    <label for="selectedColumn1">Column 1:</label>
+    <select id="selectedColumn1" [(ngModel)]="selectedColumn1">
+      <option *ngFor="let fieldName of fieldNames" [value]="fieldName">{{ fieldName }}</option>
+    </select>
+  </div>
+
+  <div class="form-group" *ngIf="fieldNames.length > 0">
+    <label for="selectedColumn2">Column 2:</label>
+    <select id="selectedColumn2" [(ngModel)]="selectedColumn2">
+      <option *ngFor="let fieldName of fieldNames" [value]="fieldName">{{ fieldName }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="selectedChartType">Chart Type:</label>
+    <select id="selectedChartType" [(ngModel)]="selectedChartType">
+      <option *ngFor="let type of chartTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group">
+    <label for="selectedFilter1">Filter 1:</label>
+    <select id="selectedFilter1" [(ngModel)]="selectedFilter1">
+      <option *ngFor="let filter of filterOptions" [value]="filter">{{ filter }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="selectedFilter2">Filter 2:</label>
+    <select id="selectedFilter2" [(ngModel)]="selectedFilter2">
+      <option *ngFor="let filter of filterOptions" [value]="filter">{{ filter }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="filterType">Filter Type:</label>
+    <select id="filterType" [(ngModel)]="filterType">
+      <option value="none">Aucun filtre</option>
+      <option value="greaterThan">Supérieur à</option>
+      <option value="lessThan">Inférieur à</option>
+    </select>
+  </div>
+
+  <div class="form-group" *ngIf="filterType !== 'none'">
+    <label for="number1">Filter Value:</label>
+    <input id="number1" type="number" [(ngModel)]="filterValue">
+  </div>
+
+  <div class="form-group">
+    <label for="number2">Limit:</label>
+    <input id="number2" type="number" [(ngModel)]="numberValue">
+  </div>
+</div>
+
+<button (click)="onDisplayChart(numberValue)">Afficher le Graphique</button>
+
+<canvas #myChart style="width: 275px; height: 200px;"></canvas>

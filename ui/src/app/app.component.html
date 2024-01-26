@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">SelfBI</a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/home">Home</a>
+    </li>
+
+    <li ngbDropdown class="nav-item">
+      <a ngbDropdownToggle id="navbarMenu1" class="nav-link" role="button">
+        Schemas
+      </a>
+      <div ngbDropdownMenu aria-labelledby="navbarMenu1" class="dropdown-menu">
+        <a class="dropdown-item" href="/tables">Tables</a>
+        <a class="dropdown-item" href="/join-relationships">Join Relationships</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/query">Query</a>
+    </li>
+
+    <li ngbDropdown class="nav-item">
+      <a ngbDropdownToggle id="navbarHelp" class="nav-link" role="button">
+        Help
+      </a>
+      <div ngbDropdownMenu aria-labelledby="navbarHelp" class="dropdown-menu">
+        <a class="dropdown-item" href="/test-rest">Test Rest apis</a>
+      </div>
+    </li>
+
+  </ul>
+
+</nav>
+
+<router-outlet></router-outlet>
+
